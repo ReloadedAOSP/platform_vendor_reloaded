@@ -91,6 +91,9 @@ PRODUCT_PACKAGES += \
     strace \
     Terminal
 
+PRODUCT_HOST_PACKAGES += \
+    signapk
+
 PRODUCT_PACKAGES += \
     Dialer \
     messaging \
@@ -137,11 +140,6 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
-# Snapdragon packages
-PRODUCT_PACKAGES += \
-    MusicFX \
-    SnapdragonGallery
-
 # OTA
 PRODUCT_PACKAGES += \
     ReloadedOTA
@@ -153,7 +151,7 @@ PRODUCT_PACKAGES += \
 
 # SoundRecorder
 PRODUCT_PACKAGES += \
-    QtiSoundRecorder
+    SoundRecorder
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -207,35 +205,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ThemePicker
 
-# Device Personalization Services
+# Launcher3
 PRODUCT_PACKAGES += \
-    MatchmakerPrebuilt
-
-# Pixel Launcher
-PRODUCT_PACKAGES += \
-    NexusLauncherPrebuilt \
-    
-# WallpaperPicker
-PRODUCT_PACKAGES += \
-    WallpaperPickerPrebuilt
-
-# Screen recorder
-PRODUCT_PACKAGES += \
-    Recorder
+    Launcher3QuickStep
 
 # Versioning
 include vendor/reloaded/config/version.mk
-
-ifneq ($(HOST_OS),linux)
-ifneq ($(sdclang_already_warned),true)
-$(warning **********************************************)
-$(warning * SDCLANG is not supported on non-linux hosts.)
-$(warning **********************************************)
-sdclang_already_warned := true
-endif
-else
-# include definitions for SDCLANG
-include vendor/reloaded/sdclang/sdclang.mk
-endif
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)

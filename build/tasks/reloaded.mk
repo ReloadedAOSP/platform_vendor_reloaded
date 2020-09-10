@@ -20,10 +20,8 @@ RELOADED_TARGET_PACKAGE := $(PRODUCT_OUT)/$(RELOADED_VERSION).zip
 .PHONY: reloaded
 reloaded: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(RELOADED_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(RELOADED_TARGET_PACKAGE) > $(RELOADED_TARGET_PACKAGE).md5sum
 	@echo ""
 	@echo -e ${CL_YLW}"════════════════════════════════════════════════════════════════════════════════"${CL_RST}
 	@echo -e ${CL_CYN}"Package zip: "${CL_MAG} $(RELOADED_TARGET_PACKAGE)                                 ${CL_RST}
-	@echo -e ${CL_CYN}"Package md5: "${CL_MAG}" `cat $(RELOADED_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
 	@echo -e ${CL_CYN}"Package size:"${CL_MAG}" `du -h $(RELOADED_TARGET_PACKAGE) | cut -f 1`            "${CL_RST}
 	@echo -e ${CL_YLW}"════════════════════════════════════════════════════════════════════════════════"${CL_RST}
